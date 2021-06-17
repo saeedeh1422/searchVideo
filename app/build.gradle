@@ -6,6 +6,10 @@ plugins {
 }
 
 android {
+    //BaseUrl
+    def playerBaseUrl = "https://player.vimeo.com/"
+    def videoBaseUrl =  "https://api.vimeo.com/"
+    def Authorization = "Bearer 26afd5cee798c34c54076049d938b380"
     buildFeatures {
         viewBinding true
     }
@@ -20,9 +24,9 @@ android {
         multiDexEnabled true
         vectorDrawables.useSupportLibrary = true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-        buildConfigField "String", "BASE_URL_VIDEO", "\"$rootProject.ext.videoBaseUrl\""
-        buildConfigField "String", "BASE_URL_PLAYER", "\"$rootProject.ext.playerBaseUrl\""
-        buildConfigField "String", "AUTHORIZATON", "\"$rootProject.ext.Authorization\""
+        buildConfigField "String", "BASE_URL_VIDEO", "\"$videoBaseUrl\""
+        buildConfigField "String", "BASE_URL_PLAYER", "\"$playerBaseUrl\""
+        buildConfigField "String", "AUTHORIZATON", "\"$Authorization\""
     }
 
     buildTypes {
@@ -42,6 +46,21 @@ android {
 }
 
 dependencies {
+    //Arch
+    def lifecycleVersion = '2.3.1'
+    def coroutineVersion = '1.4.1'
+    // Retrofit
+    def retrofitVersion = '2.6.0'
+    def gsonVersion = '2.8.2'
+    def OKHttpVersion = '3.10.0'
+    // Koin DI
+    def koinVersion = '2.2.3'
+    //exoPPlayer
+    def exoPlayerVersion ='2.14.1'
+    //fresco
+    def frescoVersion = '2.5.0'
+    //timber
+    def timberVersion ='4.7.1'
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     implementation 'androidx.core:core-ktx:1.5.0'
@@ -53,36 +72,34 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 
     // ViewModel and LiveData
-    implementation "androidx.lifecycle:lifecycle-extensions:$rootProject.ext.lifecycleVersion"
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycleVersion"
-    implementation "androidx.lifecycle:lifecycle-common-java8:$rootProject.ext.lifecycleVersion"
-    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$rootProject.ext.lifecycleVersion"
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycleVersion"
 
 
     // Coroutine
-    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$rootProject.ext.coroutineVersion"
-    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$rootProject.ext.coroutineVersion"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutineVersion"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutineVersion"
 
     //Koin AndroidX Scope features
-    implementation "io.insert-koin:koin-androidx-scope:$rootProject.ext.koinVersion"
+    implementation "io.insert-koin:koin-androidx-scope:$koinVersion"
 
     //Koin AndroidX ViewModel features
-    implementation "io.insert-koin:koin-androidx-viewmodel:$rootProject.ext.koinVersion"
+    implementation "io.insert-koin:koin-androidx-viewmodel:$koinVersion"
 
     //fresco
-    implementation "com.facebook.fresco:fresco:$rootProject.ext.frescoVersion"
+    implementation "com.facebook.fresco:fresco:$frescoVersion"
 
     // Retrofit
-    implementation "com.squareup.retrofit2:retrofit:$rootProject.ext.retrofitVersion"
-    implementation "com.squareup.retrofit2:converter-gson:$rootProject.ext.retrofitVersion"
-    implementation "com.google.code.gson:gson:$rootProject.ext.gsonVersion"
-    implementation "com.squareup.okhttp3:okhttp:$rootProject.ext.OKHttpVersion"
-    implementation "com.squareup.okhttp3:logging-interceptor:$rootProject.ext.OKHttpVersion"
+    implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofitVersion"
+    implementation "com.google.code.gson:gson:$gsonVersion"
+    implementation "com.squareup.okhttp3:okhttp:$OKHttpVersion"
+    implementation "com.squareup.okhttp3:logging-interceptor:$OKHttpVersion"
 
     //exoplayer
-    implementation "com.google.android.exoplayer:exoplayer-core:$rootProject.ext.exoPlayerVersion"
-    implementation "com.google.android.exoplayer:exoplayer-ui:$rootProject.ext.exoPlayerVersion"
+    implementation "com.google.android.exoplayer:exoplayer-core:$exoPlayerVersion"
+    implementation "com.google.android.exoplayer:exoplayer-ui:$exoPlayerVersion"
 
     //timber
-    implementation "com.jakewharton.timber:timber:$rootProject.ext.timberVersion"
+    implementation "com.jakewharton.timber:timber:$timberVersion"
 }

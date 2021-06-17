@@ -33,7 +33,7 @@ class FragmentVideoDetail : BaseFragment() {
 
     override fun getFragmentView(): Int = R.layout.fragment_video_detail
 
-    override fun initView() {
+    override fun viewInitialize() {
         videoId = arguments?.getString(EXTRA_KEY_DATA)
     }
 
@@ -49,7 +49,7 @@ class FragmentVideoDetail : BaseFragment() {
         }
     }
 
-    override fun subscribes() {
+    override fun subscribeViewModel() {
         videoId?.let {
             detailViewModel.getDetail(it).observe(this, Observer { it1 ->
                 it1?.let { resource ->

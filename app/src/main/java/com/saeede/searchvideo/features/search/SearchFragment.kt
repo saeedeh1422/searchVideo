@@ -22,7 +22,7 @@ class SearchFragment : BaseFragment() {
 
     override fun getFragmentView(): Int = R.layout.fragment_search
 
-    override fun initView() {
+    override fun viewInitialize() {
         videoAdapter = SearchVideoAdapter(imageLoading) { item, _ ->
             item.uri?.let {
                 replaceFragment(FragmentVideoDetail.getInstance(it.split('/')[2]))
@@ -50,7 +50,7 @@ class SearchFragment : BaseFragment() {
         })
     }
 
-    override fun subscribes() {
+    override fun subscribeViewModel() {
     }
 
     fun search(q: String) {

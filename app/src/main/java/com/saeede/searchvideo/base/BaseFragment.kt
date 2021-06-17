@@ -6,7 +6,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.RelativeLayout
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import com.saeede.searchvideo.R
@@ -37,15 +36,15 @@ abstract class BaseFragment : Fragment() ,BaseView{
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        initView()
+        viewInitialize()
         clickListeners()
-        subscribes()
+        subscribeViewModel()
     }
 
     abstract fun getFragmentView(): Int?
-    abstract fun initView()
     abstract fun clickListeners()
-    abstract fun subscribes()
+    abstract fun viewInitialize()
+    abstract fun subscribeViewModel()
     fun getParentActivity(): FragmentActivity? = activity
 
     fun replaceFragment(fragment: Fragment) {

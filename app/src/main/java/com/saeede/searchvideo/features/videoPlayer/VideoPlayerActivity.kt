@@ -22,9 +22,9 @@ class VideoPlayerActivity : BaseActivity() {
     private var videoId: String? = null
     private var exoPlayer: SimpleExoPlayer? = null
 
-    override fun getContentView(): Int = R.layout.activity_video_player
+    override fun getActivityView(): Int = R.layout.activity_video_player
 
-    override fun initView() {
+    override fun viewInitialize() {
         videoId = intent.getStringExtra(EXTRA_KEY_DATA)
         exoPlayer = SimpleExoPlayer.Builder(this).build()
     }
@@ -32,7 +32,7 @@ class VideoPlayerActivity : BaseActivity() {
     override fun clickListeners() {
     }
 
-    override fun subscribes() {
+    override fun subscribeViewModel() {
         videoId?.let {
             playerViewModel.getUrl(it).observe(this, Observer { response ->
                 response?.let { resource ->

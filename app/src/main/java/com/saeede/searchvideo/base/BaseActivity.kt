@@ -3,8 +3,6 @@ package com.saeede.searchvideo.base
 import android.content.Context
 import android.os.Bundle
 import android.widget.RelativeLayout
-import android.widget.TextView
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 
 abstract class BaseActivity : AppCompatActivity(), BaseView {
@@ -15,18 +13,18 @@ abstract class BaseActivity : AppCompatActivity(), BaseView {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        getContentView()?.let {
+        getActivityView()?.let {
             setContentView(it)
-            initView()
             clickListeners()
-            subscribes()
+            viewInitialize()
+            subscribeViewModel()
         } ?: kotlin.run { throw Exception("activity not inflate") }
     }
 
-    abstract fun getContentView(): Int?
-    abstract fun initView()
+    abstract fun getActivityView(): Int?
     abstract fun clickListeners()
-    abstract fun subscribes()
+    abstract fun viewInitialize()
+    abstract fun subscribeViewModel()
 
 
 }

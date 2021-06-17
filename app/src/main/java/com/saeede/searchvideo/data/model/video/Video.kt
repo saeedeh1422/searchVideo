@@ -1,10 +1,7 @@
 package com.saeede.searchvideo.data.model.video
 
-import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
-import kotlinx.android.parcel.Parcelize
 
-@Parcelize
 data class Video(
     @SerializedName("uri") val uri: String?,
     @SerializedName("name") val title: String?,
@@ -14,4 +11,4 @@ data class Video(
     @SerializedName("pictures") val pictures: Picture?,
     @SerializedName("metadata") val metadata: MetaData?
 
-) : Parcelable
+)
