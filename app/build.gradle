@@ -20,6 +20,9 @@ android {
         multiDexEnabled true
         vectorDrawables.useSupportLibrary = true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        buildConfigField "String", "BASE_URL_VIDEO", "\"$rootProject.ext.videoBaseUrl\""
+        buildConfigField "String", "BASE_URL_PLAYER", "\"$rootProject.ext.playerBaseUrl\""
+        buildConfigField "String", "AUTHORIZATON", "\"$rootProject.ext.Authorization\""
     }
 
     buildTypes {
@@ -27,6 +30,7 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
+
     }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
@@ -38,7 +42,6 @@ android {
 }
 
 dependencies {
-    def koin_version = '2.2.3'
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     implementation 'androidx.core:core-ktx:1.5.0'
@@ -50,32 +53,36 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 
     // ViewModel and LiveData
-    implementation "androidx.lifecycle:lifecycle-extensions:$rootProject.ext.archLifecycleVersion"
-    implementation "androidx.lifecycle:lifecycle-reactivestreams:$rootProject.ext.archLifecycleVersion"
-    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$archLifecycleVersion"
-    implementation "androidx.lifecycle:lifecycle-common-java8:$rootProject.ext.archLifecycleVersion"
-    testImplementation "androidx.arch.core:core-testing:$rootProject.ext.archTestVersion"
+    implementation "androidx.lifecycle:lifecycle-extensions:$rootProject.ext.lifecycleVersion"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycleVersion"
+    implementation "androidx.lifecycle:lifecycle-common-java8:$rootProject.ext.lifecycleVersion"
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$rootProject.ext.lifecycleVersion"
+
 
     // Coroutine
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$rootProject.ext.coroutineVersion"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$rootProject.ext.coroutineVersion"
 
-// Koin AndroidX Scope features
-    implementation "io.insert-koin:koin-androidx-scope:$koin_version"
-// Koin AndroidX ViewModel features
-    implementation "io.insert-koin:koin-androidx-viewmodel:$koin_version"
+    //Koin AndroidX Scope features
+    implementation "io.insert-koin:koin-androidx-scope:$rootProject.ext.koinVersion"
+
+    //Koin AndroidX ViewModel features
+    implementation "io.insert-koin:koin-androidx-viewmodel:$rootProject.ext.koinVersion"
 
     //fresco
-    //implementation 'com.facebook.fresco:fresco:2.5.0'
-    //glide
-    implementation 'com.github.bumptech.glide:glide:4.12.0'
-    annotationProcessor 'com.github.bumptech.glide:compiler:4.12.0'
+    implementation "com.facebook.fresco:fresco:$rootProject.ext.frescoVersion"
+
     // Retrofit
     implementation "com.squareup.retrofit2:retrofit:$rootProject.ext.retrofitVersion"
     implementation "com.squareup.retrofit2:converter-gson:$rootProject.ext.retrofitVersion"
     implementation "com.google.code.gson:gson:$rootProject.ext.gsonVersion"
     implementation "com.squareup.okhttp3:okhttp:$rootProject.ext.OKHttpVersion"
     implementation "com.squareup.okhttp3:logging-interceptor:$rootProject.ext.OKHttpVersion"
+
     //exoplayer
-    implementation 'com.google.android.exoplayer:exoplayer:2.14.1'
+    implementation "com.google.android.exoplayer:exoplayer-core:$rootProject.ext.exoPlayerVersion"
+    implementation "com.google.android.exoplayer:exoplayer-ui:$rootProject.ext.exoPlayerVersion"
+
+    //timber
+    implementation "com.jakewharton.timber:timber:$rootProject.ext.timberVersion"
 }

@@ -4,5 +4,5 @@ import android.content.Context
 import android.widget.ImageView
 
 interface ImageLoading {
-    fun load(context: Context,image :ImageView ,url :String)
+    fun load(context: Context?,image :MyImageView ,url :String?)
 }

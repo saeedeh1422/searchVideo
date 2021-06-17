@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingStart="32dp"
+        android:paddingEnd="32dp">
+
+        <TextView
+            android:id="@+id/titleDetailTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:textAppearance="@style/TextAppearance.MyTheme.Headline6"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="TextView" />
+
+        <com.saeede.searchvideo.services.imageloder.MyImageView
+            android:id="@+id/videoBtnImage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:viewAspectRatio="1.5"
+            android:layout_marginTop="32dp"
+            android:foreground="?selectableItemBackground"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/titleDetailTv"
+            tools:srcCompat="@tools:sample/avatars" />
+
+        <ImageView
+            android:id="@+id/playImg"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            app:layout_constraintEnd_toStartOf="@+id/likeImg"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/likeImg"
+            app:srcCompat="@drawable/ic_circle_play_gray" />
+
+        <ImageView
+            android:id="@+id/likeImg"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_marginTop="32dp"
+            app:layout_constraintEnd_toStartOf="@+id/imageView4"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/playImg"
+            app:layout_constraintTop_toBottomOf="@+id/videoBtnImage"
+            app:layout_goneMarginTop="24dp"
+            app:srcCompat="@drawable/ic_favorite_gray" />
+
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="30dp"
+            android:layout_height="32dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/likeImg"
+            app:layout_constraintTop_toTopOf="@+id/likeImg"
+            app:srcCompat="@drawable/ic_comment_gray" />
+
+        <TextView
+            android:id="@+id/playTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="0"
+            android:textAppearance="@style/TextAppearance.MyTheme.Body1"
+            app:layout_constraintEnd_toEndOf="@+id/playImg"
+            app:layout_constraintStart_toStartOf="@+id/playImg"
+            app:layout_constraintTop_toBottomOf="@+id/playImg" />
+
+        <TextView
+            android:id="@+id/likeTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:textAppearance="@style/TextAppearance.MyTheme.Body1"
+            app:layout_constraintEnd_toEndOf="@+id/likeImg"
+            app:layout_constraintStart_toStartOf="@+id/likeImg"
+            app:layout_constraintTop_toBottomOf="@+id/likeImg"
+            tools:text="TextView" />
+
+        <TextView
+            android:id="@+id/commentTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:textAppearance="@style/TextAppearance.MyTheme.Body1"
+            app:layout_constraintEnd_toEndOf="@+id/imageView4"
+            app:layout_constraintStart_toStartOf="@+id/imageView4"
+            app:layout_constraintTop_toBottomOf="@+id/imageView4"
+            tools:text="TextView" />
+
+        <TextView
+            android:id="@+id/desTv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="42dp"
+            android:textAppearance="@style/TextAppearance.MyTheme.Body1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/playTv"
+            tools:text="TextView" />
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:background="@drawable/bg_icon_gray_opacity"
+            android:scaleType="centerInside"
+            app:layout_constraintBottom_toBottomOf="@+id/videoBtnImage"
+            app:layout_constraintEnd_toEndOf="@+id/videoBtnImage"
+            app:layout_constraintStart_toStartOf="@+id/videoBtnImage"
+            app:layout_constraintTop_toTopOf="@+id/videoBtnImage"
+            app:srcCompat="@drawable/ic_play_gray_opc" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
+</RelativeLayout>

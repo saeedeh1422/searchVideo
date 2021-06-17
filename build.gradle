@@ -1,17 +1,26 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 ext{
-    // Architecture Components dependency
-    archLifecycleVersion = '2.2.0-rc02'
-    archTestVersion = '2.0.0'
-    coroutineVersion = '1.3.2'
+    //BaseUrl
+    playerBaseUrl = "https://player.vimeo.com/"
+    videoBaseUrl =  "https://api.vimeo.com/"
+    Authorization = "Bearer 26afd5cee798c34c54076049d938b380"
+
+    //Arch
+    lifecycleVersion = '2.2.0-rc02'
+    coroutineVersion = '1.4.1'
 
     // Retrofit
     retrofitVersion = '2.6.0'
     gsonVersion = '2.8.2'
     OKHttpVersion = '3.10.0'
-
     // Koin DI
-    koinVersion = '2.0.1'
+    koinVersion = '2.2.3'
+    //exoPPlayer
+    exoPlayerVersion ='2.14.1'
+    //fresco
+    frescoVersion = '2.5.0'
+    //timber
+    timberVersion ='4.7.1'
 }
 
 buildscript {
